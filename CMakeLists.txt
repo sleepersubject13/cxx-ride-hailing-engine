@@ -23,6 +23,7 @@ add_executable(
     source/hierachial_mutex.cxx
     source/driver.cxx
     source/rider.cxx
+    source/city_zone.cxx
     source/main.cxx
 )
 
