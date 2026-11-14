@@ -21,6 +21,8 @@ find_package(Threads REQUIRED)
 add_executable(
     ride-hailing-engine
     source/hierachial_mutex.cxx
+    source/driver.cxx
+    source/rider.cxx
     source/main.cxx
 )
 
