@@ -28,14 +28,3 @@ DriverStatus Driver::get_status() const {
     std::shared_lock<HierachialMutex> lock{m_mutex};
     return m_current_status;
 }
-
-// Member functions with critical sections
-//
-// =======================================
-void try_cancel(Driver& driver, Rider& rider) {
-    // TODO: Implement the cancel logic
-}
-
-void complete_ride(Driver&, Rider& rider) {
-    // TODO: Implement the complete ride logic here
-}

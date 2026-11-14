@@ -22,7 +22,8 @@ class Driver {
     std::string_view get_name() const;
     DriverStatus get_status() const;
 
-    friend void try_cancel(Driver&, Rider&);
+    friend bool try_cancel(Driver&, Rider&);
+    friend bool try_booking(Rider&, Driver&);
     friend void complete_ride(Driver&, Rider&);
     
 

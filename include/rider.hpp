@@ -19,6 +19,10 @@ class Rider {
     RiderStatus get_rider_status() const;
     Coordinates get_pickup_coordinates() const;
 
+    friend bool try_cancel(Driver&, Rider&);
+    friend bool try_booking(Rider&, Driver&);
+    friend void complete_ride(Driver&, Rider&);
+
     private:
     std::string m_id{};
     std::string m_name{};
