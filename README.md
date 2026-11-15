@@ -5,9 +5,9 @@ This is merely the initial commit, but more detailed, and meticulous documentati
 provided along the way.
 
 ### Requirements
-[x]CMake
-[x]C++ Compiler (e.g. GCC, Clang)
-> I warmly reccommend either of the aforementioned two to be able to
+- [x] CMake
+- [x] C++ Compiler (e.g. GCC, Clang)
+> I warmly recommend either of the aforementioned two to be able to
 > access and use TSan (ThreadSanitizer) to help detect race conditions
 
 ## Verification & Output
