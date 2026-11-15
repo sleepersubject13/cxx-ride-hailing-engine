@@ -13,7 +13,7 @@ provided along the way.
 ### Running the Project
 After making sure your system has met the aforementioned requirements:
 1. Clone the project
-2. cd into the base directory.
+2. Change directory into (enter) the base directory.
 3. Run the following commands in order:
 
     - cmake -B build
