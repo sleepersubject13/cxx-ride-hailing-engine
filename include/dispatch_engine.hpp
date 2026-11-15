@@ -74,9 +74,9 @@ inline void complete_ride(Driver& driver, Rider& rider) {
 }
 
 // TODO: Implement this method
-inline bool try_cancel(Driver& driver, Rider& rider) {
+// inline bool try_cancel(Driver& driver, Rider& rider) {
     
-}
+// }
 
 inline bool verify_driver_invariant(const Driver& driver) {
     Rider* assigned_rider {nullptr};
@@ -116,6 +116,7 @@ inline bool verify_driver_invariant(const Driver& driver) {
 }
 
 class DispatchEngine {
+    public:
     Driver* dispatch_nearest_driver(Rider& rider, const CityZone& zone) {
 
         std::vector<Driver*> candidate_drivers {zone.get_drivers_in_zone()};

@@ -2,7 +2,7 @@
 #include "rider.hpp"
 
 
-Driver::Driver(std::string_view id, std::string_view name): m_id {id}, m_name{name} {}
+Driver::Driver(std::string_view id, std::string_view name, Coordinates live_coordinates): m_id {id}, m_name{name}, m_live_coordinates{live_coordinates} {}
 
 void Driver::update_live_coordinates(Coordinates new_coordinates) {
      std::unique_lock<HierachialMutex> lock {m_mutex};

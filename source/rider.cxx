@@ -1,6 +1,6 @@
 #include "rider.hpp"
 
-Rider::Rider(std::string_view id, std::string_view name) : m_id {id}, m_name{name} {}
+Rider::Rider(std::string_view id, std::string_view name, Coordinates pickup_coordinates) : m_id {id}, m_name{name}, m_pickup_coordinates{pickup_coordinates} {}
 
 std::string_view Rider::get_id() const {
     std::shared_lock<HierachialMutex> lock{m_mutex};
