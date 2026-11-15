@@ -11,7 +11,7 @@ class Driver;
 
 class Rider {
     public:
-    Rider(std::string_view, std::string_view);
+    Rider(std::string_view, std::string_view, Coordinates);
 
     std::string_view get_id() const;
     std::string_view get_name() const;
@@ -19,6 +19,7 @@ class Rider {
     RiderStatus get_rider_status() const;
     Coordinates get_pickup_coordinates() const;
 
+    // TODO: Implement and test this
     friend bool try_cancel(Driver&, Rider&);
     friend bool attempt_booking(Rider&, Driver&);
     friend void complete_ride(Driver&, Rider&);

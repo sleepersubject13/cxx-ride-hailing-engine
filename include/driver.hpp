@@ -14,7 +14,7 @@ class Rider;
 class Driver {
 
     public:
-    Driver(std::string_view, std::string_view);
+    Driver(std::string_view, std::string_view, Coordinates);
 
     void update_live_coordinates(Coordinates);
     Coordinates get_live_coordinates() const;
@@ -22,6 +22,7 @@ class Driver {
     std::string_view get_name() const;
     DriverStatus get_status() const;
 
+    // Implement and test this
     friend bool try_cancel(Driver&, Rider&);
     friend bool attempt_booking(Rider&, Driver&);
     friend void complete_ride(Driver&, Rider&);
