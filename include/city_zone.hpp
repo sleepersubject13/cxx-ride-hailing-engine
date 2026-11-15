@@ -13,12 +13,12 @@ class CityZone {
     explicit CityZone(std::string_view);
     bool operator==(const CityZone&) const;
 
-    friend void transfer_driver_to_zone(CityZone&, CityZone&, Driver*);
-
-    private:
     void add_driver_to_zone(Driver*);
     std::vector<Driver*> get_drivers_in_zone() const;
     std::string_view get_zone_name() const;
+    
+    friend void transfer_driver_to_zone(CityZone&, CityZone&, Driver*);
+  
 
     private:
     std::string m_zone_name{};

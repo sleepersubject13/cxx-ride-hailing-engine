@@ -2,7 +2,7 @@
 
 #include <functional>
 #include <vector>
-#include <ranges>
+#include <algorithm>
 
 CityZone::CityZone(std::string_view zone_name): m_zone_name {zone_name} {}
 

@@ -20,7 +20,7 @@ class Rider {
     Coordinates get_pickup_coordinates() const;
 
     friend bool try_cancel(Driver&, Rider&);
-    friend bool try_booking(Rider&, Driver&);
+    friend bool attempt_booking(Rider&, Driver&);
     friend void complete_ride(Driver&, Rider&);
 
     private:
