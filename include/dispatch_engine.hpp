@@ -73,8 +73,46 @@ inline void complete_ride(Driver& driver, Rider& rider) {
     }
 }
 
+// TODO: Implement this method
 inline bool try_cancel(Driver& driver, Rider& rider) {
     
+}
+
+inline bool verify_driver_invariant(const Driver& driver) {
+    Rider* assigned_rider {nullptr};
+    {
+        std::shared_lock<HierachialMutex> driver_lock{driver.m_mutex};
+        if (driver.m_current_status == DriverStatus::AVAILABLE) {
+            return driver.m_assigned_rider == nullptr;
+        }
+
+        assigned_rider = driver.m_assigned_rider;
+    }
+
+    if (assigned_rider == nullptr) {
+        return false;
+    }
+
+    std::shared_lock<HierachialMutex> driver_lock {driver.m_mutex, std::defer_lock};
+    std::shared_lock<HierachialMutex> rider_lock {assigned_rider->m_mutex, std::defer_lock};
+
+    if (std::greater<const void*>{}(&driver, assigned_rider)) {
+        driver_lock.lock();
+        rider_lock.lock();
+    } else {
+        rider_lock.lock();
+        driver_lock.lock();
+    }
+
+    if (driver.m_current_status == DriverStatus::MATCHED) {
+        return 
+        (driver.m_assigned_rider == assigned_rider) &&
+        (assigned_rider->m_current_status == RiderStatus::MATCHED) &&
+        (assigned_rider->m_assigned_to_driver == &driver);
+    }
+
+    return driver.m_assigned_rider == nullptr;
+
 }
 
 class DispatchEngine {

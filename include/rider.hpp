@@ -23,6 +23,8 @@ class Rider {
     friend bool attempt_booking(Rider&, Driver&);
     friend void complete_ride(Driver&, Rider&);
 
+    friend bool verify_driver_invariant(const Driver&);
+
     private:
     std::string m_id{};
     std::string m_name{};

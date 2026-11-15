@@ -25,6 +25,8 @@ class Driver {
     friend bool try_cancel(Driver&, Rider&);
     friend bool attempt_booking(Rider&, Driver&);
     friend void complete_ride(Driver&, Rider&);
+
+    friend bool verify_driver_invariant(const Driver&);
     
 
     private:
