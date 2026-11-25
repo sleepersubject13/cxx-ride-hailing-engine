@@ -22,7 +22,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_package(Threads REQUIRED)
 
 # Set this option to ON to enable race condition detection using TSan
-option(ENABLE_TSAN "Enable Thread Sanitizer for race condition detection" OFF)
+option(ENABLE_TSAN "Enable Thread Sanitizer for race condition detection" ON)
 
 add_executable(
     ride-hailing-engine

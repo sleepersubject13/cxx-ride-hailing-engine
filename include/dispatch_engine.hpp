@@ -11,6 +11,7 @@
 #include <functional>
 #include <vector>
 #include <algorithm>
+#include <memory>
 
 inline double calculate_shortest_distance(Coordinates x, Coordinates y) {
 
@@ -24,7 +25,7 @@ inline bool attempt_booking(Rider& rider, Driver& driver) {
     std::unique_lock<HierachialMutex> rider_lock{rider.m_mutex, std::defer_lock};
     std::unique_lock<HierachialMutex> driver_lock{driver.m_mutex, std::defer_lock};
 
-    if (std::greater<const void*>{}(&rider, &driver)) {
+    if (std::greater<const void*>{}(std::addressof(rider), std::addressof(driver))) {
         rider_lock.lock();
         driver_lock.lock();
     } else {
@@ -55,7 +56,7 @@ inline void complete_ride(Driver& driver, Rider& rider) {
     std::unique_lock<HierachialMutex> driver_lock{driver.m_mutex, std::defer_lock};
     std::unique_lock<HierachialMutex> rider_lock{rider.m_mutex, std::defer_lock};
 
-    if (std::greater<const void*>{}(&driver, &rider)) {
+    if (std::greater<const void*>{}(std::addressof(driver), std::addressof(rider))) {
         driver_lock.lock();
         rider_lock.lock();
     } else {

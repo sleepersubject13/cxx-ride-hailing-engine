@@ -3,6 +3,7 @@
 #include <functional>
 #include <vector>
 #include <algorithm>
+#include <memory>
 
 CityZone::CityZone(std::string_view zone_name): m_zone_name {zone_name} {}
 
@@ -35,7 +36,7 @@ void transfer_driver_to_zone(CityZone& from, CityZone& to, Driver* driver) {
     std::unique_lock<HierachialMutex> from_lock{from.m_mutex, std::defer_lock};
     std::unique_lock<HierachialMutex> to_lock{to.m_mutex, std::defer_lock};
 
-    if (std::greater<>{}(&from, &to)) {
+    if (std::greater<>{}(std::addressof(from), std::addressof(to))) {
         from_lock.lock();
         to_lock.lock();
     } else {
